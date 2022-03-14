@@ -43,7 +43,7 @@ def col_spark2():
     sc2 = SparkContext(conf=conf2)
     hc2 = HiveContext(sc2)
     hc2.setConf('hive.exec.dynamic.partition.mode', 'nonstrict')
-    #    sqlong = "create table duizhang.stat_ccc_sp_20220310 as select * from iot.dr_ps_20210927 where arrive_time>=20210927170000 and arrive_time<20210927180000"
+    #    sqlong = "create table duizhang.stat_ccc_sp_20220310 as select * from 表 where arrive_time>=20210927170000 and arrive_time<20210927180000"
     sqlong = "select trademark,bill_month,hplmn1,count(1) ddct from duizhang.stat_ccc_sp_20220310 group by trademark,bill_month,hplmn1"
     result2 = hc2.sql(sqlong)
     sslist =  result2.toPandas()
