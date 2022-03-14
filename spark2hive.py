@@ -61,7 +61,7 @@ def col_spark2():
 
     print("next is hdfs write")
     hd_path = "/duizhang/qwmonitor/100-001-002.csv"
-    client = Client("http://10.255.183.58:50070/", root="/", timeout=10000, session=False)
+    client = Client("http://你的主机ip:50070/", root="/", timeout=10000, session=False)
     client.write(hd_path, hdfile, overwrite=True, append=False, encoding='utf-8')
     print("hdfs is write ok")
 
