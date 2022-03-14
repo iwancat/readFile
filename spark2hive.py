@@ -87,7 +87,6 @@ def col_spark2():
     print(mmd)
 '''
 
-from hdfs.client import Client
 
 def mydfs():
     print("next is hdfs list")
@@ -98,6 +97,22 @@ def mydfs():
 
 
 if __name__ == '__main__':
-    mydfs()
+    col_spark2()
+
+
+''' spark-submit启动的命令
+PYSPARK_PYTHON=/home/ochadoop/apps/Python3/bin/python3 spark-submit \
+--master yarn \
+--deploy-mode cluster \
+--conf spark.yarn.executor.memoryOverhead=4096 \
+--num-executors 80 \
+--executor-cores 5 \
+--executor-memory 20G \
+--driver-memory 12G \
+--archives hdfs:///duizhang/Python3.zip#ANACONDA \
+--conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=/home/ochadoop/apps/Python3/bin/python3 \
+--files /home/ochadoop/apps/spark/conf/hive-site.xml \
+spark2hive_sprd.py
+'''
 
 
