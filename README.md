@@ -20,7 +20,7 @@ spark2hive_sprd.py
 
 ### cluster模式
 ```
-PYSPARK_PYTHON=/home/ochadoop/apps/Python3/bin/python3 spark-submit \
+PYSPARK_PYTHON=/home/hadoop/apps/Python3/bin/python3 spark-submit \
 --master yarn \
 --deploy-mode cluster \
 --conf spark.yarn.executor.memoryOverhead=4096 \
@@ -29,7 +29,7 @@ PYSPARK_PYTHON=/home/ochadoop/apps/Python3/bin/python3 spark-submit \
 --executor-memory 20G \
 --driver-memory 12G \
 --archives hdfs:///duizhang/Python3.zip#ANACONDA \
---conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=/home/ochadoop/apps/Python3/bin/python3 \
---files /home/ochadoop/apps/spark/conf/hive-site.xml \
+--conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=/home/hadoop/apps/Python3/bin/python3 \
+--files /home/hadoop/apps/spark/conf/hive-site.xml \
 spark2hive_sprd222.py
 ```
