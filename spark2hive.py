@@ -92,7 +92,7 @@ from hdfs.client import Client
 def mydfs():
     print("next is hdfs list")
     hd_path = "/duizhang"
-    client = Client("http://10.255.183.58:50070/", root="/", timeout=10000, session=False)
+    client = Client("http://你的ip:50070/", root="/", timeout=10000, session=False)
     client.list(hd_path, status=False)
     print("hdfs is list ok")
 
