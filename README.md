@@ -14,6 +14,7 @@
 # 通过pyspark连接spark
 python连接spark的方式
 ### client模式
+
 ```
 spark-submit \
 --master yarn \
@@ -28,6 +29,7 @@ spark2hive_sprd.py
 ```
 
 ### cluster模式
+输出文件到hdfs上
 ```
 PYSPARK_PYTHON=/home/hadoop/apps/Python3/bin/python3 spark-submit \
 --master yarn \
