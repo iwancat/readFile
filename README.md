@@ -39,7 +39,7 @@ PYSPARK_PYTHON=/home/hadoop/apps/Python3/bin/python3 spark-submit \
 --executor-cores 5 \
 --executor-memory 20G \
 --driver-memory 12G \
---archives hdfs:///duizhang/Python3.zip#ANACONDA \
+--archives hdfs:///duizhang/Python3.zip#ANACONDA \  #这个zip是打包的python3的环境，里面最重要的是程序调用的公开包
 --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=/home/hadoop/apps/Python3/bin/python3 \
 --files /home/hadoop/apps/spark/conf/hive-site.xml \
 spark2hive_sprd222.py
