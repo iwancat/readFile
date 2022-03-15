@@ -14,7 +14,7 @@
 # 通过pyspark连接spark
 python连接spark的方式
 ### client模式
-
+输出文件到本地，或hdfs
 ```
 spark-submit \
 --master yarn \
