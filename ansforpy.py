@@ -179,10 +179,6 @@ if __name__ == '__main__':
     ansible2 = MyAnsiable2(inventory='/Users/yuehaoan/hosts', connection='smart')
     # /Users/yuehaoan     /root
 
-    # Paybook调用方式
-    #ansible2.playbook(playbooks=['test.yml'])
-
-
     # 进程号，cpu，内存, 运行时间
     ansible2.run(hosts= "myserver", module="shell", args="ps -eo pid,etime,cmd |grep Dproc_journalnode | grep -v grep  |awk '{print $2}' ;ps aux |grep -v grep|grep Dproc_journalnode | awk '{print $2,$3,$6}'" )
     #top -c -bn 1  |egrep -v 'grep|top -c' |grep Dproc_journalnode | awk '{print $1, $9 ,$6}'
