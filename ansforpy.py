@@ -181,6 +181,7 @@ if __name__ == '__main__':
 
     # paybook
     # ansible2.playbook(playbooks=['test.yml'])
+    print("wo shangchuan master")
 
     # 进程号，cpu，内存, 运行时间
     ansible2.run(hosts= "myserver", module="shell", args="ps -eo pid,etime,cmd |grep Dproc_journalnode | grep -v grep  |awk '{print $2}' ;ps aux |grep -v grep|grep Dproc_journalnode | awk '{print $2,$3,$6}'" )
