@@ -55,6 +55,11 @@ class ResultCallback(CallbackBase):
         self.host_failed[result._host.get_name()] = result
 
 
+class VariableManagerExtra(VariableManager):
+    def extend_vars(self, extra_vars):
+        self._extra_vars.update(extra_vars)
+
+
 class MyAnsiable2():
     def __init__(self,
                  connection='local',  # 连接方式 local 本地方式，smart ssh方式
@@ -115,6 +120,9 @@ class MyAnsiable2():
         # 变量管理器
         self.variable_manager = VariableManager(self.loader, self.inv_obj)
 
+        # 重新写密码配置，配置文件中可随意配置一个
+        for hhsts in self.inv_obj.hosts:
+            self.variable_manager.set_host_variable(host=hhsts, varname='ansible_ssh_pass', value='8klly&yCBBS')
 
     def run(self, hosts='localhost', gether_facts="no", module="ping", args=''):
         play_source =  dict(
@@ -193,8 +201,8 @@ if __name__ == '__main__':
     psData = json.loads(re_list)
 
     succ = psData['success']
-    print("节点IP", "进程ID", "CPU使用率", "使用内存", "状态" ,"运行时间")
-    for suc in succ :
+    print("节点IP", "进程ID", "CPU使用率", "使用内存", "状态", "运行时间")
+    for suc in succ:
         sss_list = succ[suc]
         if sss_list['stdout'] == '':
             stat_sg = "abort"
