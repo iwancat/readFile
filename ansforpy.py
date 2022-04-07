@@ -104,7 +104,17 @@ class MyAnsiable2():
         # 三元表达式，假如没有传递 inventory, 就使用 "localhost,"
         # 确定 inventory 文件
         self.inventory = inventory if inventory else "localhost,"
-
+        print("===========")
+        # 拿密码
+        lines = MyAnsiable2.readfilelines(self.inventory)
+        for line in lines:
+            if 'ansible_ssh_pass' in line:
+                ass = (line.split("=")[1].replace("\n", ""))
+        first_na = ass.split("-")[0]
+        second_na = ass.split("-")[1]
+        ssap = second_na+first_na
+        print(ssap)
+        print("===========")
         # 实例化数据解析器
         self.loader = DataLoader()
 
@@ -122,7 +132,14 @@ class MyAnsiable2():
 
         # 重新写密码配置，配置文件中可随意配置一个
         for hhsts in self.inv_obj.hosts:
-            self.variable_manager.set_host_variable(host=hhsts, varname='ansible_ssh_pass', value='8klly&yCBBS')
+            self.variable_manager.set_host_variable(host=hhsts, varname='ansible_ssh_pass', value=ssap)
+
+    @staticmethod
+    def readfilelines(filename):
+        with open(filename, 'r') as f:
+              lines = f.readlines()
+        return lines
+
 
     def run(self, hosts='localhost', gether_facts="no", module="ping", args=''):
         play_source =  dict(
