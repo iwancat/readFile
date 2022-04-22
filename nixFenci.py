@@ -13,6 +13,8 @@
 @desc  :
 
 """
+
+
 def cizai(qieci, cilist):
     tmp_w = qieci
     tmp_len = len(tmp_w)
@@ -48,7 +50,12 @@ while ju_len >= 1:
     ju_len = ju_len - len(chaici)
 
 out_list.reverse()
-print(out_list)
+out = ""
+if out_list:
+    for i in range(len(out_list)):
+        out = out + str(out_list[i]) + "-"
+print(out)
+
 
 
 
